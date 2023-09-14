@@ -19,7 +19,7 @@ class FaceVerifier:
                                          model_name="ArcFace"
                                          )
                 print(f'{index}: {result["distance"]}')
-                if result["distance"] < 0.55:
+                if result["distance"] < 0.65:
                     verified_photos.append(image_to_filter)
             except Exception as e:
                 print(f"Error processing image: {str(e)}")
@@ -38,7 +38,7 @@ class FaceVerifier:
                                              distance_metric="cosine",
                                              model_name="ArcFace"
                                              )
-                    if result["distance"] < 0.35:
+                    if result["distance"] < 0.6:
                         verified_photos.append(image_to_filter)
                         break
                 except Exception as e:
