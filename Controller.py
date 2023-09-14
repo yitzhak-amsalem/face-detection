@@ -1,7 +1,5 @@
-import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
 from RequestModel import RequestModel
 from ResponseModel import ResponseModel
 
