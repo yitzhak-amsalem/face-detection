@@ -1,5 +1,5 @@
-import io, base64
-import json
+import base64
+import io
 import os
 
 from PIL import Image
