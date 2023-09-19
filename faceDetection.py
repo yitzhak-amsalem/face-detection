@@ -2,6 +2,7 @@ from deepface import DeepFace
 
 
 class FaceVerifier:
+
     def __init__(self, model_images, images_to_filter):
         self.model_images = model_images
         self.images_to_filter = images_to_filter

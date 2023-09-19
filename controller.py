@@ -13,7 +13,9 @@ def uploadImage(data=None):
         data = request.get_json()
         requestModel = RequestModel(**data)
         responseModel = ResponseModel(requestModel)
-        return jsonify({"result": responseModel.filteredImages64})
+        filterImages = ResponseModel.process(responseModel)
+        ResponseModel.deleteImages(responseModel)
+        return jsonify({"result": filterImages})
     except Exception as e:
         return "error!!", e
 
