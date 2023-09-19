@@ -20,5 +20,5 @@ def uploadImage(data=None):
         return "error!!", e
 
 
-if __name__ == '__main__':
-    app.run()
+# if __name__ == '__main__':
+#     app.run()

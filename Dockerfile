@@ -8,14 +8,11 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Make port 80 available to the world outside this container
-EXPOSE 80
-
-# Define environment variable
-ENV NAME World
+EXPOSE 10000
 
 # Run wsgi.py when the container launches
 # Run Gunicorn to serve the Flask application
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "wsgi:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "wsgi:app"]
