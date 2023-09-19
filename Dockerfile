@@ -4,6 +4,9 @@ FROM python:3.8-slim
 # Set the working directory to /app
 WORKDIR /app
 
+# Install system libraries required for graphical operations
+RUN apt-get update && apt-get install -y libgl1-mesa-glx
+
 # Copy the current directory contents into the container at /app
 COPY . /app
 
@@ -17,4 +20,5 @@ EXPOSE 80
 ENV NAME World
 
 # Run wsgi.py when the container launches
-CMD ["python", "wsgi.py"]
+# Run Gunicorn to serve the Flask application
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "wsgi:app"]
