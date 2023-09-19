@@ -11,7 +11,7 @@ COPY . /app
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Make port 80 available to the world outside this container
-EXPOSE 5000
+EXPOSE 8000
 
 # Run wsgi.py when the container launches
 # Run Gunicorn to serve the Flask application
