@@ -18,4 +18,4 @@ ENV NAME World
 
 # Run wsgi.py when the container launches
 # Run Gunicorn to serve the Flask application
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "wsgi:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "wsgi:app"]
