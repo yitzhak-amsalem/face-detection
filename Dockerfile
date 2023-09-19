@@ -11,8 +11,8 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Make port 80 available to the world outside this container
-EXPOSE 10000
+EXPOSE 8000
 
 # Run wsgi.py when the container launches
 # Run Gunicorn to serve the Flask application
-CMD ["gunicorn", "--bind", "0.0.0.0:10000", "wsgi:app"]
+CMD ["gunicorn", "wsgi:app"]
