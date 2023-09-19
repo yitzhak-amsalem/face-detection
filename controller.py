@@ -1,7 +1,10 @@
-from flask import request, jsonify
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 from RequestModel import RequestModel
 from ResponseModel import ResponseModel
-from wsgi import app
+
+app = Flask('__main__')
+CORS(app, allow_headers='Content-Type')
 
 
 @app.route('/upload-image', methods=['POST'])
@@ -17,6 +20,5 @@ def uploadImage(data=None):
         return "error!!", e
 
 
-
-# if __name__ == '__main__':
-#     app.run()
+if __name__ == '__main__':
+    app.run()
