@@ -1,9 +1,7 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import request, jsonify
 from RequestModel import RequestModel
 from ResponseModel import ResponseModel
-
-
+from wsgi import app
 
 
 @app.route('/upload-image', methods=['POST'])
