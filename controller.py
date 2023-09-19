@@ -3,8 +3,7 @@ from flask_cors import CORS
 from RequestModel import RequestModel
 from ResponseModel import ResponseModel
 
-app = Flask('face_detection')
-CORS(app, allow_headers='Content-Type')
+
 
 
 @app.route('/upload-image', methods=['POST'])
@@ -18,6 +17,7 @@ def uploadImage(data=None):
         return jsonify({"result": filterImages})
     except Exception as e:
         return "error!!", e
+
 
 
 # if __name__ == '__main__':
