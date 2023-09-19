@@ -1,11 +1,8 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8-slim
+FROM python:3.11-slim
 
 # Set the working directory to /app
 WORKDIR /app
-
-# Install system libraries required for graphical operations
-RUN apt-get update && apt-get install -y libgl1-mesa-glx
 
 # Copy the current directory contents into the container at /app
 COPY . /app
