@@ -1,6 +1,5 @@
 import base64
 import io
-import os
 from PIL import Image
 
 
@@ -23,7 +22,9 @@ def convertBase64ArrayToImg(base64_images, imageType):
     images_path = []
     for base64_string in base64_images:
         path = f"{imageType}{count}.jpeg"
-        convertBase64ToImg(base64_string["image"], path)
+        if imageType == "model":
+            base64_string = base64_string.split(",")[1]
+        convertBase64ToImg(base64_string, path)
         images_path.append(path)
         count += 1
     return images_path

@@ -7,7 +7,7 @@ app = Flask('__main__')
 CORS(app, allow_headers='Content-Type')
 
 
-@app.route('/upload-image', methods=['POST'])
+@app.route('/filter', methods=['POST'])
 def uploadImage(data=None):
     try:
         data = request.get_json()

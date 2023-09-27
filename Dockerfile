@@ -1,18 +1,14 @@
-# Use an official Python runtime as a parent image
-FROM python:3.9-slim
+#FROM python:3.11
+FROM python:3.10-slim
 
-# Set the working directory to /app
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
 COPY . /app
 
-# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
+RUN pip uninstall -y opencv-python
+RUN pip install opencv-python-headless
 
-# Make port 80 available to the world outside this container
-EXPOSE 8000
-
-# Run wsgi.py when the container launches
-# Run Gunicorn to serve the Flask application
-CMD ["gunicorn", "controller:app"]
+EXPOSE 8080
+o
+CMD ["gunicorn", "controller:app", "-b", "8080"]
